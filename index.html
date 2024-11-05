@@ -11,19 +11,25 @@
         <div class="calculadora">
             <input type="text" class="pantalla" disabled>
             <div class="botones">
-            <button onclick="agregar('1')">1</button>
-            <button onclick="agregar('2')">2</button>
-            <button onclick="agregar('3')">3</button>
-            <button onclick="agregar('4')">4</button>
-            <button onclick="agregar('5')">5</button>
-            <button onclick="agregar('6')">6</button>
-            <button onclick="agregar('7')">7</button>
-            <button onclick="agregar('8')">8</button>
-            <button onclick="agregar('9')">9</button>
-            <button onclick="agregar('0')">0</button>
-            <button onclick="agregar('.')">.</button>
-            <button class="operador" onclick="agregar('+')">+</button>
-            <button class="igual" onclick="calcular('=')">=</button>
+                <button class="limpiarTodo" onclick="agregar('C')">C</button>
+                <button class="borrarDigito" onclick="agregar('C')">←</button> <!-- Alt + 27 -->
+                <button onclick="agregar('C')">÷</button> <!-- Alt + 0247 -->
+                <button onclick="agregar('C')">×</button> <!-- Alt + 0215 -->
+                <button onclick="agregar('1')">1</button> 
+                <button onclick="agregar('2')">2</button>
+                <button onclick="agregar('3')">3</button>
+                <button onclick="agregar('C')">-</button> <!-- Alt + 45 -->
+                <button onclick="agregar('4')">4</button>
+                <button onclick="agregar('5')">5</button>
+                <button onclick="agregar('6')">6</button>
+                <button class="operador" onclick="agregar('+')">+</button>
+                <button onclick="agregar('7')">7</button>
+                <button onclick="agregar('8')">8</button>
+                <button onclick="agregar('9')">9</button>
+                <button onclick="agregar('C')">√</button> <!-- Alt + 251 -->
+                <button class="igual" onclick="calcular('=')">=</button>
+                <button onclick="agregar('0')">0</button>
+                <button onclick="agregar('.')">.</button>
         </div>
     </div>
     

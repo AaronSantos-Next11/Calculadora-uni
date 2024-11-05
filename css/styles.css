@@ -65,7 +65,7 @@ button:hover {
 
 .igual{
     background: #d3d3d3;
-    grid-column: span 4;
+    grid-column: span 2;
 }
 
 .igual:hover {

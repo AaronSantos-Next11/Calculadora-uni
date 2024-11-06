@@ -8,7 +8,7 @@ let operadorActual = null;
 
 let reiniciarPantalla = false;
 
-//* Función Agregar 
+//* Función Agregar numero o digito con el boton "+"
 function agregar(valor) {
 
     if (reiniciarPantalla) {
@@ -25,9 +25,90 @@ function agregar(valor) {
         operadorActual = valor;
         reiniciarPantalla = true;
 
-} else {
-    pantalla.value += valor;
+    } else {
+        pantalla.value += valor;
     }
+
+}
+
+//* Función Restar numero o digito con el boton "-"
+function restar(valor) {
+
+    if (reiniciarPantalla) {
+        pantalla.value = "";
+        reiniciarPantalla = false;
+  }
+
+    if (["-"].includes(valor)) {
+
+        if (operadorActual !== null) {
+            calcular();
+        }
+        numeroAnterior = pantalla.value;
+        operadorActual = valor;
+        reiniciarPantalla = true;
+
+    } else {
+        pantalla.value -= valor;
+    }
+}
+
+//* Función dividir números con el signo "/"
+let dividir = (valor) => {
+    
+    if (reiniciarPantalla) {
+        pantalla.value = "";
+        reiniciarPantalla = false;
+  }
+
+    if (["/"].includes(valor)) {
+
+        if (operadorActual !== null) {
+            calcular();
+        }
+        numeroAnterior = pantalla.value;
+        operadorActual = valor;
+        reiniciarPantalla = true;
+
+    } else {
+        pantalla.value /= valor;
+    }
+}
+
+//* Función raiz de un número con el signo "√"
+let raiz = (valor) => {
+    
+    if (reiniciarPantalla) {
+        pantalla.value = "";
+        reiniciarPantalla = false;
+  }
+
+    if (["√"].includes(valor)) {
+
+        if (operadorActual !== null) {
+            calcular();
+        }
+        numeroAnterior = pantalla.value;
+        operadorActual = valor;
+        reiniciarPantalla = true;
+
+    } else {
+        pantalla.value += valor;
+    }
+}
+
+//* Funcion limpiarTodo con el boton "C"
+function limpiarTodo() {
+
+    limpiar();
+    
+}
+
+//* Funcion borrarDigito con el boton '←'
+
+let borrarDigito = () => {
+
+    pantalla.value = pantalla.value.slice(0, -1);
 
 }
 
@@ -61,10 +142,22 @@ function calcular() {
         case '+':
             resultado = numero1 + numero2;
             break;
+        case '-':
+            resultado = numero1 - numero2;
+            break;
+        case '×':
+            resultado = numero1 * numero2;
+            break;
+        case '/':
+            resultado = numero1 / numero2;
+            break;
+        case '√':
+            resultado = Math.sqrt(numero1);
+            break;
     }
 
-    // Redondear a ocho decimales, evitando problemas de precición
-    resultado = Math.round(resultado * 100000000 / 100000000);
+    //* Redondear a ocho decimales, evitando problemas de precición
+    resultado = Math.round(resultado * 100000000) / 100000000;
 
     pantalla.value = resultado;
     operadorActual = null;
@@ -80,21 +173,24 @@ document.addEventListener('keydown', (event) => {
     
     // Tecla enter para calcular 
     if (/[0-9\+\-\*\/\./]/.test(key)) {
-
         agregar(key);
 
-    } else if (key === 'Enter') {
-
+    }
+    // Tecla enter para confirmar una operacion
+    else if (key === 'Enter') {
         calcular();
+        console.log("Enter key pressed"); //Permite comprobar en consola si funcionó
     }
 
     // Tecla escape para limpiar
     else if (key === 'Escape') {
-        limpiar();
+        limpiarTodo();
+        console.log("Escape key pressed"); //Permite comprobar en consola si funcionó
     }
 
     // Tecla backscape para borrar caracter 
     else if (key === 'Backspace') {
-        display.value = display.value.slice(0, -1);
-    }
+        borrarDigito();
+        console.log("Backspace key pressed"); //Permite comprobar en consola si funcionó
+    } 
 })

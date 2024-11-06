@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styles.css">
+        
+    <!-- Enlace a Font Awesome para poder usar iconos personalizados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <title>Calculator</title>
     </head>
     <body>
@@ -13,14 +17,14 @@
             <div class="botones">
                 <button class="limpiarTodo" onclick="limpiarTodo('C')">C</button>
                 <button class="borrarDigito" onclick="borrarDigito('←')">←</button> <!-- Alt + 27 -->
-                <button class="operador" onclick="dividir('/')">/</button> <!-- Alt + 0247 -->
-                <button class="operador" onclick="agregar('×')">×</button> <!-- Alt + 0215 -->
+                <button class="operador" onclick="agregar('/')">÷</button> <!-- Alt + 0247 -->
+                <button class="operador" onclick="agregar('*')"><i class="fa-solid fa-xmark"></i></button> <!-- Alt + 0215 -->
                 
                 <button onclick="agregar('7')">7</button>
                 <button onclick="agregar('8')">8</button>
                 <button onclick="agregar('9')">9</button>
 
-                <button class="operador" onclick="restar('-')">-</button> <!-- Alt + 45 -->
+                <button class="operador" onclick="agregar('-')">-</button> <!-- Alt + 45 -->
                 
                 <button onclick="agregar('4')">4</button>
                 <button onclick="agregar('5')">5</button>
@@ -32,14 +36,17 @@
                 <button onclick="agregar('2')">2</button>
                 <button onclick="agregar('3')">3</button>
 
-                <button class="operador" onclick="raiz('√')">√</button> <!-- Alt + 251 -->
+                <button class="operador" onclick="agregar('√')">√</button> <!-- Alt + 251 -->
                 <button class="igual" onclick="calcular('=')">=</button>
 
                 <button onclick="agregar('0')">0</button>
                 <button onclick="agregar('.')">.</button>
         </div>
-    </div>
+    </div4>
     
     <script src="js/script.js"></script>
+    
+    <!-- Enlace a la biblioteca JavaScript de Bootstrap desde el CDN para hacer que el menú sea interactivo -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

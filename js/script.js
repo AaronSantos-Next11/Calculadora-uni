@@ -16,7 +16,7 @@ function agregar(valor) {
         reiniciarPantalla = false;
   }
 
-    if (["+"].includes(valor)) {
+    if (["+","-","*","/","√"].includes(valor)) {
 
         if (operadorActual !== null) {
             calcular();
@@ -31,7 +31,7 @@ function agregar(valor) {
 
 }
 
-//* Función Restar numero o digito con el boton "-"
+/* //* Función Restar numero o digito con el boton "-"
 function restar(valor) {
 
     if (reiniciarPantalla) {
@@ -97,6 +97,29 @@ let raiz = (valor) => {
     }
 }
 
+//* Función raiz de un número con el signo "√"
+let multiplicar = (valor) => {
+    
+    if (reiniciarPantalla) {
+        pantalla.value = "";
+        reiniciarPantalla = false;
+  }
+
+    if (["*"].includes(valor)) {
+
+        if (operadorActual !== null) {
+            calcular();
+        }
+        numeroAnterior = pantalla.value;
+        operadorActual = valor;
+        reiniciarPantalla = true;
+
+    } else {
+        pantalla.value *= valor;
+    }
+}
+ */
+
 //* Funcion limpiarTodo con el boton "C"
 function limpiarTodo() {
 
@@ -122,7 +145,14 @@ function limpiar () {
 
 //* Función calcular
 function calcular() {
+    /* 
+    * Come
     if(operadorActual === null || reiniciarPantalla) {
+        return;
+    }
+    */
+
+    if(operadorActual === null) {
         return;
     }
 
@@ -145,14 +175,14 @@ function calcular() {
         case '-':
             resultado = numero1 - numero2;
             break;
-        case '×':
+        case '*':
             resultado = numero1 * numero2;
             break;
         case '/':
             resultado = numero1 / numero2;
             break;
         case '√':
-            resultado = Math.sqrt(numero1);
+            resultado = Math.sqrt(numero2);
             break;
     }
 
